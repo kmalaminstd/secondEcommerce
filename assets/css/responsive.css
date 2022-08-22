@@ -1,0 +1,89 @@
+@media only screen and (max-width: 770px){
+    .rightNav {
+        width: 70%;
+    }
+
+    .productBox {
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .rightNav {
+        width: 100%;
+    }
+
+    .rightNav ul{
+        justify-content: space-between;
+    }
+
+    .leftNav{
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .productBox {
+        width: 100%;
+    }
+
+    .menu-nav{
+        flex-direction: column;
+    }
+
+    .shopping-ctg-btn {
+        width: 100%;
+    }
+
+    
+    .proudctSlideSumm .head{
+        width: 100%;
+    }
+
+    .proudctSlideSumm .head h2{
+        font-size: 35px;
+    }
+
+    .product-tab .tab-buttons {
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .hero-text {
+        padding: 7px 5px;
+    }
+
+    .left-hero-text {
+        color: #fff;
+        font-weight: 600;
+        float: left;
+        width: 22%;
+        font-size: 18px;
+    }
+
+    .login-form{
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .allProducts {
+        width: 100%;
+    }
+
+    .allProducts .allProBox {
+        width: 48%;
+        margin: 20px 1%;
+        
+    }
+
+    .filter-btns {
+        flex-direction: column;
+    }
+
+    .filter-btns select {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
