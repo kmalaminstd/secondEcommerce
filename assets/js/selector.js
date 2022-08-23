@@ -10,6 +10,8 @@ const selectors = {
         const allProductShowElm = document.querySelector('.allProducts')
         const prodDetialsProdUiElm = document.querySelector('.cart-products')
         const fullCartElm = document.querySelector('.fullCart')
+        const mensProductPageElm = document.querySelector('.allProducts') ;
+        const womensProductPageElm = document.querySelector('.allProducts')
 
 
         return{
@@ -22,7 +24,9 @@ const selectors = {
             tabProductSummElm,
             allProductShowElm,
             prodDetialsProdUiElm,
-            fullCartElm
+            fullCartElm,
+            mensProductPageElm,
+            womensProductPageElm
         }
     }
 }
