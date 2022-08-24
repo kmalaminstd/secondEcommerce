@@ -1,7 +1,7 @@
 import selectors from "./selector.js";
 import navClick from "./navClick.js";
 import { productUi } from "./productShowUi.js";
-import allproducts from "allProduct.js";
+import allproducts from "./allProduct.js";
 
 
 let productArr = []
