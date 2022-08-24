@@ -252,20 +252,29 @@ const productDetailsPage = {
 
             prodDetialsProdUiElm.insertAdjacentHTML('beforeend', htmlElm)
 
+            let productColor = ''
+            let productSize = ''
+
             document.querySelector('#productColorSelect').addEventListener('change', e => {
                 elem.ProductColor = e.target.value
+                productColor = e.target.value
             })
 
             document.querySelector('#productSizeSelect').addEventListener('change', e => {
                 elem.ProductSize = e.target.value
-                console.log(elem);
-
+                productSize = e.target.value
             })
 
             document.querySelector('#addCartBtn').addEventListener('click', () => {
+                if(!productColor && !productSize){
+                    alert('Invalid field')
+                }else{
+                    // const prodSizeVal = document.querySelector('')
                     cartPageLocaStorage(elem)
                     window.location.replace('productCart.html')
                     localStorage.removeItem('ProductsItem')
+                }
+                
             })
             
         })
