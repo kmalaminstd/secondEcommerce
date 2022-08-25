@@ -12,6 +12,7 @@ const selectors = {
         const fullCartElm = document.querySelector('.fullCart')
         const mensProductPageElm = document.querySelector('.allProducts') ;
         const womensProductPageElm = document.querySelector('.allProducts')
+        const genderFilterElm = document.querySelector("#genderFilter")
 
 
         return{
@@ -26,7 +27,8 @@ const selectors = {
             prodDetialsProdUiElm,
             fullCartElm,
             mensProductPageElm,
-            womensProductPageElm
+            womensProductPageElm,
+            genderFilterElm
         }
     }
 }

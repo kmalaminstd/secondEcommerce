@@ -46,6 +46,11 @@ function cartPageLocaStorage(elem){
 
 // index page function
 const indexPage = {
+    // async fetchDataFromJson(){
+    //     const res = await fetch('allProduct.json')
+    //     const result = await res.json()
+    //     console.log(result);
+    // },
     indexPageFunc(){
         // selecting all dom
         const {
@@ -55,6 +60,8 @@ const indexPage = {
             newSaleTabBtnElm,
             tabProductSummElm
         } = selectors.allSelectors()
+
+        // this.fetchDataFromJson()
 
         // navClick function
         navClick.navClickFunc()
@@ -193,6 +200,8 @@ const indexPage = {
 
     }
 }
+
+
 
 // products details page function
 const productDetailsPage = {
@@ -366,6 +375,7 @@ const productCartPage = {
 const allProductPage = {
     allProductShow(){
         const {
+            genderFilterElm,
             allProductShowElm
         } = selectors.allSelectors()
         let isTriggered = true
@@ -373,8 +383,41 @@ const allProductPage = {
         // nav click function
         navClick.navClickFunc()
 
+        genderFilterElm.addEventListener('change', e => {
+           allProductShowElm.innerHTML = ''
+           allproducts.map( elem => {
+            if(elem.category === e.target.value){
+                this.showInUi(elem)
+            }
+           }) 
+        })
+
         allproducts.map(elem => {
-            const htmlElm = `
+            this.showInUi(elem)
+        })
+        
+    },
+    
+    buyFunction(allBuyBtn){
+        for(let i = 0; i < allBuyBtn.length; i++){
+            allBuyBtn[i].addEventListener('click', e => {
+                const prodId = getId(e.target)
+                window.location.replace('productsDetails.html')
+                allproducts.map( elem => {
+                    if(elem.id === Number(prodId)){
+                        productArr.push(elem)
+                        console.log(productArr);
+                        productInLocalStorage(elem)
+                    }
+                })
+            })
+        }
+    },
+    showInUi(elem){
+        const {
+            allProductShowElm
+        } = selectors.allSelectors()
+        const htmlElm = `
             <div class="allProBox">
             <div class="proImg">
                 <img src="${elem.ProductsImage}" alt="product image">
@@ -391,28 +434,9 @@ const allProductPage = {
             allProductShowElm.insertAdjacentHTML('beforeend', htmlElm)
 
             const allBuyBtn =document.querySelectorAll('.getBtn')
-            if(isTriggered === true){
+            
                 this.buyFunction(allBuyBtn)
-                isTriggered === false
-            }
-
-        })
-        
-    },
-    buyFunction(allBuyBtn){
-        for(let i = 0; i < allBuyBtn.length; i++){
-            allBuyBtn[i].addEventListener('click', e => {
-                const prodId = getId(e.target)
-                window.location.replace('productsDetails.html')
-                allproducts.map( elem => {
-                    if(elem.id === Number(prodId)){
-                        productArr.push(elem)
-                        console.log(productArr);
-                        productInLocalStorage(elem)
-                    }
-                })
-            })
-        }
+                
     }
 }
 
